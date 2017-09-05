@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div id="memu">
+        @Html.ActionLink("Exif", "Index")
+    </div>
+
+    <noscript>
+        <div id="noScriptDiv">
+            JavaScript is required!
+        </div>
+    </noscript>
+
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
