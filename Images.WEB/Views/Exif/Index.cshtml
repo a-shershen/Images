@@ -6,7 +6,7 @@
 
 <h2>Exif Viewer</h2>
 
-<form action="~/Exif/Index"
+<form action="~/Exif/Upload"
       class="dropzone"
       id="dropzoneForm"
        method="post"
@@ -16,3 +16,79 @@
     <input type="submit" value="Upload" />
 
 </form>
+
+
+@if (ViewBag.Error != true)
+{
+
+    if (ViewBag.WithExif != null)
+    {
+        <div>
+            <img width="400" height="300" src=@ViewBag.Path />
+        </div>
+        if (ViewBag.WithExif == true)
+        {
+            if (Model.ContainsKey("Latitude") && Model.ContainsKey("Longitude"))
+            {
+                string latitude = Model["Latitude"].Replace(',', '.');
+                string longitude = Model["Longitude"].Replace(',', '.');
+
+
+                <div id="map">
+
+                    <iframe width="460" height="300" frameborder="0" style="border:0"
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC0IvhOIuMwLL0QHQZ7QnfDshuVWVoBQ-0&q=@latitude,@longitude&maptype=satellite"></iframe>
+
+
+                </div>
+
+                <div>
+                    <div class="block key">
+                        Latitude
+                    </div>
+                    <div class="block value">
+                        @Model["Latitude"]
+                    </div>
+                </div>
+
+                <div>
+                    <div class="block key">
+                        Longitude
+                    </div>
+                    <div class="block value">
+                        @Model["Longitude"]
+                    </div>
+                </div>
+
+                Model.Remove("Latitude");
+                Model.Remove("Longitude");
+            }
+
+
+            foreach (var v in Model)
+            {
+                <div>
+                    <div class="block key">
+                        @v.Key
+                    </div>
+                    <div class="block value">
+                        @v.Value
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div>
+                У изображения нет Exif-данных
+            </div>
+        }
+    }
+}
+else
+{
+    if (ViewBag.Error != null)
+    {
+        @ViewBag.ErrorMessage
+    }
+}

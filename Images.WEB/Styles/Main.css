@@ -1,0 +1,18 @@
+﻿body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.block {
+    display: inline-block;
+}
+
+.key {
+    color: #a0a0a0;
+    font-size: smaller;
+}
+
+.value {
+    color: #6060FF;
+    font-size: smaller;
+    margin-left: 10px;
+}
