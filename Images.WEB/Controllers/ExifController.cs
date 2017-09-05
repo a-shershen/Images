@@ -23,7 +23,7 @@ namespace Images.WEB.Controllers
         }
 
         [HttpPost]
-        public ActionResult Upload()
+        public ActionResult UploadImage()
         {
             HttpPostedFileBase file = Request.Files[0];
 
