@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing.Imaging;
 
 namespace Images.Exif.Lib.Services
 {
     public class ExifService : Interfaces.IExifService
     {
-        public IDictionary<string, string> GetProperties(Image image)
+        public IDictionary<string, string> GetProperties(System.Drawing.Image image)
         {
             IDictionary<string, string> res
             = new Dictionary<string, string>();
