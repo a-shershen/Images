@@ -1,5 +1,5 @@
 # Images
 
-Uploads an image -> Reads the EXIF-data -> Shows the place on Google Maps (if GPS coordinates finds)
+Upload an image -> Read the EXIF-data -> Show the place on Google Maps (if GPS coordinates finds)
 
-http://images.somee.com
+http:andreiimages-001-site1.atempurl.com
