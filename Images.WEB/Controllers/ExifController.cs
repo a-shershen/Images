@@ -97,7 +97,7 @@ namespace Images.WEB.Controllers
                 ViewBag.Path = "/Images/Temp/" + fileName;
 
 #else
-                ViewBag.Path = "http://andreiimages-001.myasp.net/Images/Temp/" + fileName;
+                ViewBag.Path = "http://andreiimages-001-site1.atempurl.com/Images/Temp/" + fileName;
 #endif
 
                 IDictionary< string, string> dict;
