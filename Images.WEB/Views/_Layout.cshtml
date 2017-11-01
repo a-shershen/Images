@@ -5,21 +5,26 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
 
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
     <link href="~/Styles/Main.css" rel="stylesheet" />
 </head>
 <body>
-    <div id="memu">
-        @Html.ActionLink("Exif", "Index")
-    </div>
-
-    <noscript>
-        <div id="noScriptDiv">
-            JavaScript is required!
+    <div class="container mainDiv">
+        <div id="memu" class="col-xs-12 big">
+            @Html.ActionLink("Exif-данные изображений", "Index")
         </div>
-    </noscript>
 
-    <div>
-        @RenderBody()
-    </div>
+        <noscript>
+            <div id="noScriptDiv" class="col-xs-12">
+                JavaScript is required!
+            </div>
+        </noscript>
+
+        <div class="container col-xs-12">
+            @RenderBody()
+        </div>
+    </div>      
 </body>
 </html>

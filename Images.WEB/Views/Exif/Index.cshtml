@@ -4,14 +4,32 @@
     Layout = "~/Views/_Layout.cshtml";
 }
 
-<h2>Exif Viewer</h2>
+<div class="col-xs-12 margin25">
+    <br />
+    <p>
+        1 - Загрузите изображение
+    </p>
 
+    <p>
+        2.1 - Приложение считывает EXIF-данные изображения (если они существуют)
+    </p>
 
-@using (Html.BeginForm("UploadImage", "Exif", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    <input type="file" value="Загрузить изображение" name="upload" />
-    <input type="submit" value="OK" />
-}
+    <p>
+        2.2 - Если данные содержат GPS-координаты, то подгружается Google Maps с маркером
+    </p>
+</div>
+
+<div class="col-xs-12 margin25">
+    @using (Html.BeginForm("UploadImage", "Exif", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div style="display:inline-block">
+            <input type="file" class="button" value="Загрузить изображение" name="upload" />
+        </div>
+        <div style="display:inline-block">
+            <input type="submit" class="button okButton" value="OK" />
+        </div>
+    }
+</div>
 
 
     @if (ViewBag.Error != true)
@@ -19,8 +37,8 @@
 
         if (ViewBag.WithExif != null)
         {
-            <div>
-                <img width="400" height="300" src=@ViewBag.Path />
+            <div class="col-xs-12 col-sm-6">
+                <img class="img-responsive" src=@ViewBag.Path />
             </div>
             if (ViewBag.WithExif == true)
             {
@@ -30,31 +48,34 @@
                     string longitude = Model["Longitude"].Replace(',', '.');
 
 
-                    <div id="map">
+                    
 
-                        <iframe width="460" height="300" frameborder="0" style="border:0"
+                        <iframe frameborder="0" style="border:0" class="col-xs-12 col-sm-6 map"
                                 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC0IvhOIuMwLL0QHQZ7QnfDshuVWVoBQ-0&q=@latitude,@longitude&maptype=satellite"></iframe>
 
 
-                    </div>
+<div class="col-xs-12 margin25">
 
-                    <div>
-                        <div class="block key">
-                            Latitude
-                        </div>
-                        <div class="block value">
-                            @Model["Latitude"]
-                        </div>
-                    </div>
+</div>
 
-                    <div>
-                        <div class="block key">
-                            Longitude
-                        </div>
-                        <div class="block value">
-                            @Model["Longitude"]
-                        </div>
-                    </div>
+                                <div class="container col-xs-12">
+                                    <div class="key col-xs-12 col-sm-2">
+                                        Latitude
+                                    </div>
+                                    <div class="value col-xs-12 col-sm-10">
+                                        @Model["Latitude"]
+                                    </div>
+                                </div>
+                                <div class="container col-xs-12">
+                                    <div class="key col-xs-12 col-sm-2">
+                                        Longitude
+                                    </div>
+                                    <div class="value col-xs-12 col-sm-10">
+                                        @Model["Longitude"]
+                                    </div>
+
+
+                                </div>
 
                     Model.Remove("Latitude");
                     Model.Remove("Longitude");
@@ -63,11 +84,11 @@
 
                 foreach (var v in Model)
                 {
-                    <div>
-                        <div class="block key">
+                    <div class="container col-xs-12">
+                        <div class="key col-xs-12 col-sm-2">
                             @v.Key
                         </div>
-                        <div class="block value">
+                        <div class="value col-xs-12 col-sm-10">
                             @v.Value
                         </div>
                     </div>
@@ -75,7 +96,7 @@
             }
             else
             {
-                <div>
+                <div class="col-xs-12 nodata">
                     У изображения нет Exif-данных
                 </div>
             }
@@ -85,6 +106,14 @@
     {
         if (ViewBag.Error != null)
         {
-            @ViewBag.ErrorMessage
+            <div class="col-xs-12 nodata">
+                @ViewBag.ErrorMessage
+            </div>
         }
     }
+
+<br />
+<br />
+
+
+

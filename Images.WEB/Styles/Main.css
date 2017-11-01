@@ -1,9 +1,26 @@
 ﻿body {
     font-family: 'Open Sans', sans-serif;
+    width: 100%;
+    background-color: #d0ecc3;
+    background-image: url('/Images/Design/bac.png');
 }
 
-.block {
-    display: inline-block;
+a, a:active, a:visited {
+    color: #7f9177;
+    text-decoration:underline;
+}
+
+a:hover{
+    color: #d0ecc3;
+    text-decoration:underline;
+}
+
+.mainDiv{
+    margin:0 auto;
+    padding:0!important;
+    height:100%;
+    background-color:#ffffff;
+    max-width:900px;
 }
 
 .key {
@@ -14,6 +31,45 @@
 .value {
     color: #6060FF;
     font-size: smaller;
-    margin-left: 10px;
+    padding-bottom:10px;
+}
+
+.big{
+    font-size:xx-large;
+}
+
+.map{
+    min-height:300px;
+    /*margin:0!important;
+    padding:0!important;*/
+}
+
+.nodata {
+    color: #a0a0a0;
+    font-size:x-large;
+}
+
+.margin25{
+    margin-bottom:25px;
+}
+
+input{
+    border:none;
+}
+
+.button {
+    background-color: #d0ecc3;
+    color:#ffffff;
+    min-width:50px;
+    min-height:25px;
+}
+
+.okButton {
+    background-color: #7f9177;
+    font-weight: bold;   
+}
+
+.okButton:hover{
+    background-color: #d0ecc3;
 }
 
